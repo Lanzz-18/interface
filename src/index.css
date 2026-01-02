@@ -145,19 +145,52 @@
   color: #00aaff;
 }
 
+.dropdown-container{
+  box-sizing: border-box;
+}
+
+.select {
+  cursor: pointer;
+  display: flex;
+  padding: 1vh;
+  background-color: #00aaff;
+  width: 100px;
+}
+
+.select-clicked {
+  border: 2px solid white;
+}
+
+.menu {
+  list-style: none;
+  padding: 0vh;
+  background-color: #1b3644;
+  width: fit-content;
+  color: white;
+  display: none;
+}
+
+.menu li{
+  padding: 1vh;
+  cursor: pointer;
+  width: 100px;
+}
+
+.active {
+  background: palegoldenrod;
+}
+
 /*
-<div className="search-panel">
-  <ul className="search-option-container">
-    <li className="search-option">Buy</li>
-    <li className="search-option">Rent</li>
-    <li className="search-option">Sold</li>
-  </ul>
-  <form className="search-panel-form">
-    <div className="search-group">
-      <label for="search">Search properties to buy</label>
-      <input type="search" id="search" placeholder='Bath, NW3, or Leeds station'></input>
+<div className="dropdown-container">
+    <div className="select">
+        <span className="selected">Discord</span>
     </div>
-    <button id="search-button">Search</button>
-  </form>
+    <ul className="menu">
+        <li className="active">Discord</li>
+        <li>Test1</li>
+        <li>Test2</li>
+        <li>Test3</li>
+    </ul>
 </div>
+
 */
