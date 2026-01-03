@@ -2,14 +2,14 @@ import React from 'react';
 import DropDown from './DropDown';
 import PropertyCard from './PropertyCard';
 import TestPic from '../assets/test.jpeg';
+import data from '../assets/properties.json';
 
 const propertTypes =[
     "Houses", 
     "Flats / Apartments", 
     "Bungalows", 
-    "Land", 
-    "Commercial Property", 
-    "Other"
+    "Plot", 
+    "Penthouse"
 ];
 const bedroomCount = ["Studio", 1, 2, 3, 4 ,5];
 const addedToSite = [
@@ -120,20 +120,20 @@ function SearchPage(props){
 
             <section className='results-section'>
                 <h2 id="results-text">Property Results</h2>
-                <PropertyCard 
-                    type="House"
-                    bedrooms={3} 
-                    price={750000}         
-                    location="Petts Wood Road, Petts Wood, Orpington BR5"
-                    description="Attractive three bedroom semi-detached family home situated within 0.5 miles of Petts Wood station with fast trains to London and within easy walking distance of local shops, schools, bus routes and National Trust woodland. The property comprises; two receptions, fitted 18'9 x 10'1 kitchen/breakfast room and conservatory. The property also benefits from having a utility room and cloakroom. To the first floor there are three bedrooms and a family bathroom with separate WC. Additional features include double glazing, gas central heating and a well presented interior..."
-                    picture={TestPic}
-                    added={{  
-                        "month":"October",
-                        "day":12,
-                        "year":2022
-                    }}
-                />
-            
+                {data.properties.map((property) => {
+                    return(
+                        <PropertyCard 
+                            key={property.key}
+                            type={property.type}
+                            bedrooms={property.bedrooms}
+                            price={property.price}       
+                            location={property.location}
+                            description={property.description}
+                            picture={property.picture}
+                            added={property.added}
+                        />
+                    )
+                })}
             </section>
         </div>
     )

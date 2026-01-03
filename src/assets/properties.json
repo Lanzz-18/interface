@@ -31,5 +31,85 @@
                 "day":14,
                 "year":2022
             }
+        },
+        {
+            "id":"prop3",
+			"type":"Apartment",
+            "bedrooms":2,
+			"price":725000,
+			"tenure":"Leasehold",
+			"description":"A stunning luxury apartment located close to all amenities of Finchley Road and West Hampstead. The property is situated on the ground floor of a modern development and boasts a large reception room with stylish open plan kitchen, two well proportioned double bedrooms and two bathrooms (one en-suite). Offered chain free.",
+			"location":"The Cascades, Finchley Road, London, NW3",
+			"picture":"images/prop2pic1small.jpg",
+			"url":"properties/prop2.html",
+            "added": {
+                "month":"February",
+                "day": 8,
+                "year":2024
+            }
+        },
+        {
+            "id":"prop4",
+			"type":"House",
+            "bedrooms":7,
+			"price":16500000,
+			"tenure":"Freehold",
+			"description":"Discover an exceptional, Grade II Listed, seven bedroom family home, beautifully reimagined for modern living while retaining its timeless heritage. Originally built by the esteemed C.H.B. Quennell, this magnificent property sits behind a gated carriage driveway with a garage, exuding elegance and grandeur.",
+			"location":"Heath Drive, Hampstead, NW3",
+			"picture":"images/prop2pic1small.jpg",
+			"url":"properties/prop2.html",
+            "added": {
+                "month":"June",
+                "day": 11,
+                "year":2025
+            }
+        },
+        {
+            "id":"prop5",
+			"type":"Bungalow",
+            "bedrooms":6,
+			"price":950000,
+			"tenure":"Freehold",
+			"description":"Spacious and well maintained detached Six Bedroom Chalet Bungalow with Off Street Parking and the potential for Seven Bedrooms. Located close to Goodmayes, Seven Kings & Barking Stations plus Schools, Parks, Local Amenities & Transport links.",
+			"location":"Goodmayes Lane, Ilford",
+			"picture":"images/prop2pic1small.jpg",
+			"url":"properties/prop2.html",
+            "added": {
+                "month":"September",
+                "day": 15,
+                "year":2025
+            }
+        },
+        {
+            "id":"prop6",
+			"type":"Penthouse",
+            "bedrooms":3,
+			"price":1200000,
+			"tenure":"Leasehold",
+			"description":"This opulent duplex penthouse benefits from a feature staircase, bespoke bathrooms, kitchen, steam room and a second indoor/outdoor kitchen-bar area for entertaining. Glazed folding doors lead to an expansive private terrace and hot tub, allowing residents to relax and unwind while enjoying spectacular views across the city.",
+			"location":"Woodhouse Lane, Leeds, West Yorkshire, LS1",
+			"picture":"images/prop2pic1small.jpg",
+			"url":"properties/prop2.html",
+            "added": {
+                "month":"November",
+                "day": 3,
+                "year":2025
+            }
+        },
+        {
+            "id":"prop7",
+			"type":"Plot",
+            "bedrooms":5,
+			"price":1500000,
+			"tenure":"Leasehold",
+			"description":"An incredibly rare and unique development opportunity for a purchaser to create their very own family home from new. Full planning permission has been granted (planning reference : 24/06560/FU ) for the construction of a five bedroom, five bathroom detached home circa 6000sqft being set over three floors.",
+			"location":"Wike Ridge Lane, Leeds, West Yorkshire",
+			"picture":"images/prop2pic1small.jpg",
+			"url":"properties/prop2.html",
+            "added": {
+                "month":"October",
+                "day": 22,
+                "year":2025
+            }
         }
 ]}
