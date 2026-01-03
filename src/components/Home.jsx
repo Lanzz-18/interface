@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
     return(
-        <div>
+        <div className="Home">
             {/* Image card */}
             <div className="main-panel">
                 <h1><span>Believe</span> in finding it</h1>

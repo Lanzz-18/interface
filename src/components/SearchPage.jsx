@@ -51,7 +51,7 @@ const searchRadius = [
     "Within 40 miles"
 ]
 
-function SearchBar(props){
+function SearchPage(props){
     return(
         <section>
             {/* Creating the form*/}
@@ -114,11 +114,11 @@ function SearchBar(props){
                     />
                     <button>Search properties</button>
                 </div>
-                
             </form>
-            
+
+            <h2 id="results-text">Results will load here</h2>
         </section>
     )
 }
 
-export default SearchBar;
+export default SearchPage;
