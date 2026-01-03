@@ -22,7 +22,7 @@ const Home = () => {
                     <label for="search">Search properties to buy</label>
                     <input type="search" id="search" placeholder='Bath, NW3, or Leeds station'></input>
                     </div>
-                    <button id="search-button"><Link to="/search-bar">Search</Link></button>
+                    <button id="search-button"><Link to="/search-page">Search</Link></button>
                 </form>
                 </div>
             </div>
