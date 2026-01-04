@@ -19,7 +19,7 @@ function DropDown(props){
         <div className="form-group">
             {props.label && <label className="filter-label">{props.label}</label>}
             <select value={val} onChange={handleChange}>
-                <option value="">{props.default}</option>
+                <option value={props.default}>{props.default}</option>
                 {props.options.map((opt) => (
                     <option key={opt} value={opt}>
                         {opt}

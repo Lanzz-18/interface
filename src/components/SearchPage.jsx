@@ -1,23 +1,29 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import DropDown from './DropDown';
 import PropertyCard from './PropertyCard';
-import TestPic from '../assets/test.jpeg';
 import data from '../assets/properties.json';
 
+/* Creating list of property types */
 const propertTypes =[
-    "Houses", 
-    "Flats / Apartments", 
-    "Bungalows", 
+    "House", 
+    "Flat", 
+    "Apartment",
+    "Bungalow", 
     "Plot", 
     "Penthouse"
 ];
+
+/* Creating list of bedroom ranges */
 const bedroomCount = ["Studio", 1, 2, 3, 4 ,5];
+
+/* Creating list of added to site values */
 const addedToSite = [
     "Last 24 hours", 
     "Last 3 days", 
     "Last 7 days", 
     "Last 14 days"
 ];
+
 /* Creating list of price ranges */
 const priceRange = [];
 let increment = 10000;
@@ -38,7 +44,7 @@ for(let i=50000; i<=20000000;){
     }
     i += increment;
 }
-console.log(priceRange)
+
 /* Creating list of search radius */
 const searchRadius = [
     "Within ¼ mile",
@@ -53,43 +59,83 @@ const searchRadius = [
     "Within 40 miles"
 ]
 
-function SearchPage(props){
+function SearchPage(){
+    const[criteria, changeCriteria] = useState({
+        type:"Any",
+        minPrice:0,
+        maxPrice: Infinity,
+        minBed: 0,
+        maxBed: Infinity,
+        postcode: '',
+        date: "Anytime"
+    });
+    const [filteredData, changeFilteredData] = useState(data.properties);
+
+    function filterChanges(prop){
+        const matchType = criteria.type === 'Any' || prop.type === criteria.type;
+        const matchPrice = prop.price >= criteria.minPrice && prop.price <= criteria.maxPrice;
+        const matchBeds = prop.bedrooms >= criteria.minBed && prop.bedrooms <= criteria.maxBed;
+        const matchPostcode = prop.location.toUpperCase().includes(criteria.postcode.toUpperCase());
+        return matchType && matchPrice && matchBeds && matchPostcode;
+    };
+
+    useEffect(() => {
+        const results = data.properties.filter(filterChanges)
+        changeFilteredData(results);
+    }, [criteria])
+
+    function updateCriteria(field, value){
+        changeCriteria(oldCriteria => ({...oldCriteria, [field]:value}))
+    }
+
+    /*
+    <DropDown 
+        label="Search radius"
+        options={searchRadius}
+        default="This area only"
+        onSelect={(value) => updateCriteria('type', value)}
+    /> 
+
+    <DropDown 
+        label="Added to Site"
+        options={addedToSite}
+        default="Anytime"
+        onSelect={(value) => console.log(`User selected: ${value}`)}
+    />
+    */
+
     return(
         <div>
             {/* Creating the form*/}
             <form className="search-form">
                 <h1>Search properties for sale</h1>
                 <div className="filters">
-                    <DropDown 
-                        label="Search radius"
-                        options={searchRadius}
-                        default="This area only"
-                        onSelect={(value) => console.log(`User selected: ${value}`)}
-                    />
-
-                    <div className="range-value-group">
-                        <label>Price Range</label>
-                        <div className="range-values">
-                            <DropDown 
-                                options={priceRange}
-                                default="No min"
-                                onSelect={(value) => console.log(`User selected: ${value}`)}
-                            />
-                            <p>-</p>
-                            <DropDown 
-                                options={priceRange}
-                                default="No max"
-                                onSelect={(value) => console.log(`User selected: ${value}`)}
-                            />
-                        </div>
+                    <div className="search-input-group">
+                        <label htmlFor="location-search">Search location</label>
+                        <input 
+                            type='search' 
+                            placeholder="NW3, BR5, etc" 
+                            id="location-search"
+                            value={criteria.postcode}
+                            onChange={(val) => updateCriteria('postcode', val.target.value)}></input>
                     </div>
 
                     <DropDown 
                         label="Property Type"
                         options={propertTypes}
                         default="Any"
-                        onSelect={(value) => console.log(`User selected: ${value}`)}
+                        onSelect={(value) => updateCriteria('type', value)}
                     />
+
+                    <div className="search-input-group">
+                        <label htmlFor="date-search">Search by date added</label>
+                        <input 
+                            type='search' 
+                            placeholder="October 12 2025.." 
+                            id="date-search"
+                            value={criteria.date}
+                            onChange={(val) => updateCriteria('date',val.target.value)}></input>
+                    </div>
 
                     <div className="range-value-group">
                         <label>No. of Bedrooms</label>
@@ -108,22 +154,30 @@ function SearchPage(props){
                         </div>
                     </div>
 
-                    <DropDown 
-                        label="Added to Site"
-                        options={addedToSite}
-                        default="Anytime"
-                        onSelect={(value) => console.log(`User selected: ${value}`)}
-                    />
-                    <button>Search properties</button>
+                    <div className="range-value-group">
+                        <label>Price Range</label>
+                        <div className="range-values">
+                            <DropDown 
+                                options={priceRange}
+                                default="No min"
+                                onSelect={(value) => updateCriteria('minPrice', parseInt(value.replace(/\D/g, '')))}
+                            />
+                            <p>-</p>
+                            <DropDown 
+                                options={priceRange}
+                                default="No max"
+                                onSelect={(value) => updateCriteria('maxPrice', parseInt(value.replace(/\D/g, '')))}
+                            />
+                        </div>
+                    </div>
                 </div>
             </form>
 
             <section className='results-section'>
-                <h2 id="results-text">Property Results</h2>
-                {data.properties.map((property) => {
-                    return(
+                <h2 id="results-text">{filteredData.length} Property Results Found</h2>
+                {filteredData.map((property) => (
                         <PropertyCard 
-                            key={property.key}
+                            key={property.id}
                             type={property.type}
                             bedrooms={property.bedrooms}
                             price={property.price}       
@@ -132,8 +186,7 @@ function SearchPage(props){
                             picture={property.picture}
                             added={property.added}
                         />
-                    )
-                })}
+                ))}
             </section>
         </div>
     )

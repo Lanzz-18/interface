@@ -308,11 +308,12 @@ body {
 
 .filters {
   display: flex;
-  flex-direction: column;
-  gap: 5vh;
+  flex-direction: row;
+  gap: 10vh;
   flex-wrap: wrap;
   height: 200px;
   padding: 1vh;
+  justify-content: center;
 }
 
 .search-form .form-group{
@@ -337,6 +338,27 @@ body {
 
 .search-form .form-group select:focus{
   border: 2px solid rgba(255, 115, 72, 0.811);
+}
+
+.search-input-group{
+  display: flex;
+  flex-direction: column;
+}
+
+.search-input-group label{
+  font-size: 2vh;
+  margin: 1vh 0;
+  font-weight: 550;
+}
+
+.search-input-group input{
+  width: 300px;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 2vh;
+  font-size: 2.5vh;
+  color: #5d5d5d;
+  margin: 0;
 }
 
 .search-form .form-group label {
