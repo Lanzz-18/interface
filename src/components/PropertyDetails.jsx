@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import data from "../assets/properties.json";
 
 const PropertyDetails = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
+
   const prop = data.properties.find((item) => item.id === id);
   if (!prop) {
+    // If the prop is empty
     return (
         <div>
             <h1>No property found</h1>
@@ -27,10 +30,9 @@ const PropertyDetails = () => {
     const updateToggle = (id) => {
         changeToggleContent(id);
     }
-
     return (
         <div className="product-details-page">
-            <button>Back</button>
+            <button id="back-button" onClick={() => navigate(-1)}>Back</button>
             <h1 id="property-details-heading">Property details</h1>
             <h1 id="property-location">{prop.location}</h1>
 

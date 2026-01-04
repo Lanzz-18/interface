@@ -436,7 +436,96 @@ form button:hover {
   background-color: rgba(255, 60, 0, 0.811);
 }
 
+/* Favourite section */
 
+.favourites-section {
+  background-color: #ff876f76;
+  height: fit-content;
+  min-height: 30px;
+  max-height: 300px;
+  overflow:scroll;
+  width: 1100px;
+  margin: 0 auto;
+  margin-top: 5vh;
+  border-radius: 10px;
+  padding: 2vh;
+}
+
+#favourite-section-header {
+  color: #210a0588;
+  font-weight: 600;
+  font-size: 2.5vh;
+  text-align: center;
+  margin: 2vh 0;
+}
+
+.fav-props-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
+
+.fav-prop-profile {
+  display: flex;
+  align-items: center;
+  gap: 2vh;
+  width: 500px;
+  background-color: white;
+  padding: 1vh 2vh;
+  border-radius: 5px;
+}
+
+.fav-prop-profile img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+#remove-button {
+  margin-left: auto;
+  background-color: rgba(255, 0, 0, 0.493);
+  border-radius: 3px;
+  color: white;
+  transition: 0.3s ease-in-out;
+}
+
+#remove-button:hover {
+  background-color: rgba(255, 0, 0, 0.798);
+}
+
+#favourite-prop-location {
+  font-weight: 600;
+}
+
+#favourite-prop-type {
+  color: #ff3300;
+  font-size: 2.2vh;
+}
+
+/*
+<div
+  className="favourites-bar"
+  onDragOver={(e) => e.preventDefault()}
+  onDrop={handleDrop}
+>
+  {favourites.length === 0 
+      ? (<p>Add your favourite properties here</p>) 
+      : (
+          <div className="fav-props-container">
+              {favourites.map((favProperty) => (
+                  <div key={favProperty.id} className="fav-prop-profile">
+                      <img src={`images/${favProperty.picture}`} alt="Property picture" />
+                      <div>
+                          <p>{favProperty.location}</p>
+                          <p><string>{favProperty.type}</string></p>
+                      </div>
+                  </div>
+              ))}
+          </div>
+  )}
+</div>
+
+*/
 
 #results-text {
   font-weight: 200;
@@ -599,7 +688,23 @@ form button:hover {
   background-color: rgb(0, 224, 86);
 }
 
-/* ProductDetails page */
+/* Product Details page */
+
+#back-button {
+  border: none;
+  padding: 1vh 2vh;
+  border-radius: 2px;
+  margin-bottom: 2vh;
+  background-color: #ff914d;
+  color: white;
+  transition: 0.3s ease-in-out;
+}
+
+#back-button:hover {
+  background-color: #fe6200;
+  color: white;
+  text-decoration: underline;
+}
 
 .product-details-page {
   padding: 2vh;
