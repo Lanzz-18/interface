@@ -25,7 +25,7 @@ const PropertyDetails = () => {
 
     // Tab functionality
     const [toggleContent, changeToggleContent] = useState(1)
-    function updateToggle(id){
+    const updateToggle = (id) => {
         changeToggleContent(id);
     }
 
@@ -49,19 +49,19 @@ const PropertyDetails = () => {
 
             <div className="tab-section">
                 <ul className="tab-headings">
-                    <li>Description</li>
-                    <li>Floor plan</li>
-                    <li>Google maps</li>
+                    <li onClick={() => updateToggle(1)} className={toggleContent === 1 ? "highlight-tab-heading" : ''}>Description</li>
+                    <li onClick={() => updateToggle(2)} className={toggleContent === 2 ? "highlight-tab-heading" : ''}>Floor plan</li>
+                    <li onClick={() => updateToggle(3)} className={toggleContent === 3 ? "highlight-tab-heading" : ''}>Google maps</li>
                 </ul>
-                <div className="show-content" id="description">
+                <div className={toggleContent === 1 ? "show-content" : "content"} id="description">
                     <p>{prop.description}</p>
                 </div>
 
-                <div className="content" id="floor-plan">
+                <div className={toggleContent === 2 ? "show-content" : "content"} id="floor-plan">
                     <img src={`/images/${prop.id}/floor-plan.jpg`}></img>
                 </div>
 
-                <div className="content" id="google-maps"> 
+                <div className={toggleContent === 3 ? "show-content" : "content"} id="google-maps"> 
                     <h3>Google Maps Location</h3>
                     <a href={`${prop["google-link"]}`} target="_blank">View on maps</a>
                 </div>

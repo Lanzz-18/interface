@@ -654,8 +654,18 @@ form button:hover {
   font-weight: 600;
   font-size: 4vh;
   justify-content: center;
-  padding-bottom: 1vh;
-  border-bottom: 1px solid rgb(255, 197, 103);
+  border-bottom: 1px solid rgb(218, 119, 48);
+  cursor: pointer;
+}
+
+.tab-headings li {
+  border-bottom: 3px solid transparent;
+}
+
+.tab-headings li.highlight-tab-heading {
+  color: rgb(255, 106, 0) ;
+  border-bottom: 3px solid rgb(255, 106, 0);
+  transition: 0.1s ease-in-out;
 }
 
 .show-content{
