@@ -21,7 +21,7 @@ const PropertyCard = (props) => {
             <p>{props.description}</p>
             <div className="icon-groups">
                 <div className="icon-group">
-                    <img src={import.meta.env.BASE_URL + "/images/house.png"} alt="house icon"></img>
+                    <img src={`${import.meta.env.BASE_URL}/images/house.png`} alt="house icon"></img>
                     <p>{props.type}</p>
                 </div>
 
