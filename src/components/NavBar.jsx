@@ -10,7 +10,8 @@ const NavBar = () => {
                 <p>FindMy<span>Home</span></p>
             </Link>
             <div className="nav-links">
-                <a href="search-page">Buy Properties</a>
+                <a href="search-page"></a>
+                <Link to="/search-page"><p>Buy Properties</p></Link>
             </div>
         </div>
     )
