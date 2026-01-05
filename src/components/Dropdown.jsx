@@ -8,7 +8,7 @@ import React, {useState} from 'react';
 />
 */
 
-function DropDown(props){
+const DropDown = (props) => {
     const [val, setVal] = useState("");
     const handleChange = (event) => {
         setVal(event.target.value);
