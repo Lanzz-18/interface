@@ -8,19 +8,17 @@ import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
 function App(){
   return(
-    <Router>
-      <div className="app"> 
-        <NavBar />
-        <div className="app-content">
-          <Routes>
-            <Route path="/" element={<Home />}/>
-            <Route path="search-page" element={<SearchPage />}/>
-            <Route path="property/:id" element={<PropertyDetails />} />
-          </Routes>
-        </div>
-        <Footer />
+    <div className="app"> 
+      <NavBar />
+      <div className="app-content">
+        <Routes>
+          <Route path="/" element={<Home />}/>
+          <Route path="search-page" element={<SearchPage />}/>
+          <Route path="property/:id" element={<PropertyDetails />} />
+        </Routes>
       </div>
-    </Router>
+      <Footer />
+    </div>
   )
 }
 
