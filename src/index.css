@@ -108,7 +108,6 @@ body {
 .main-panel {
   color: rgb(255, 96, 48);
   position: relative;
-  
   margin: 0 auto; 
   border-radius: 2vh;
   padding: 2vh;
@@ -117,7 +116,6 @@ body {
   align-items: center;
   min-width: 1000px;
   height: 400px;
-
   background-image: url(/images/homes3.jpg);
   background-size: 100% 125%;
   background-repeat: none;
