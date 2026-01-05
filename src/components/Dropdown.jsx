@@ -1,13 +1,5 @@
 import React, {useState} from 'react';
 
-/*
-<DropDown 
-    label="Property Type"
-    options={propertTypes}
-    onSelect={(value) => console.log(`User selected: ${value}`)}
-/>
-*/
-
 const DropDown = (props) => {
     const [val, setVal] = useState("");
     const handleChange = (event) => {
